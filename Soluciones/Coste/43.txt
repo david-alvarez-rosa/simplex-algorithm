@@ -1,0 +1,51 @@
+Inicio símplex primal con la regla del coste reducido más negativo.
+
+
+    Fase I
+	Iteración 1: 	q = 5,	rq = -476.000,	B(p) = 23, 	theta* = 0.020, 	z = 1842.480
+	Iteración 2: 	q = 2,	rq = -745.960,	B(p) = 24, 	theta* = 0.176, 	z = 1711.430
+	Iteración 3: 	q = 8,	rq = -723.894,	B(p) = 21, 	theta* = 0.447, 	z = 1388.120
+	Iteración 4: 	q = 6,	rq = -477.836,	B(p) = 30, 	theta* = 0.149, 	z = 1316.805
+	Iteración 5: 	q = 10,	rq = -965.042,	B(p) = 22, 	theta* = 0.165, 	z = 1157.452
+	Iteración 6: 	q = 11,	rq = -766.298,	B(p) = 28, 	theta* = 0.109, 	z = 1073.575
+	Iteración 7: 	q = 1,	rq = -878.989,	B(p) = 26, 	theta* = 0.277, 	z = 830.404
+	Iteración 8: 	q = 13,	rq = -801.850,	B(p) = 29, 	theta* = 0.266, 	z = 617.058
+	Iteración 9: 	q = 14,	rq = -610.700,	B(p) = 27, 	theta* = 0.240, 	z = 470.702
+	Iteración 10: 	q = 9,	rq = -263.013,	B(p) = 14, 	theta* = 0.654, 	z = 298.639
+	Iteración 11: 	q = 4,	rq = -667.491,	B(p) = 13, 	theta* = 0.148, 	z = 199.576
+	Iteración 12: 	q = 12,	rq = -872.656,	B(p) = 25, 	theta* = 0.229, 	z = -0.000
+	Iteración 13: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = -0.000
+
+	Solución básica factible encontrada, iteración 13.
+
+
+    Fase II
+	Iteración 14: 	q = 14,	rq = -99.342,	B(p) = 8, 	theta* = 2.282, 	z = -102.390
+	Iteración 15: 	q = 16,	rq = -0.787,	B(p) = 5, 	theta* = 52.002, 	z = -143.330
+	Iteración 16: 	q = 7,	rq = -63.914,	B(p) = 10, 	theta* = 0.132, 	z = -151.738
+	Iteración 17: 	q = 13,	rq = -8.738,	B(p) = 12, 	theta* = 0.218, 	z = -153.647
+	Iteración 18: 	q = 17,	rq = -0.521,	B(p) = 11, 	theta* = 274.625, 	z = -296.798
+	Iteración 19: 	q = 12,	rq = -14.763,	B(p) = 16, 	theta* = 1.879, 	z = -324.532
+	Iteración 20: 	q = 20,	rq = -0.575,	B(p) = 2, 	theta* = 191.915, 	z = -434.875
+	Iteración 21: 	q = 18,	rq = -0.675,	B(p) = 6, 	theta* = 235.392, 	z = -593.851
+	Iteración 22: 	q = 11,	rq = -34.179,	B(p) = 13, 	theta* = 0.786, 	z = -620.710
+	Iteración 23: 	q = 5,	rq = -4.032,	B(p) = 1, 	theta* = 1.044, 	z = -624.918
+	Iteración 24: 	q = 16,	rq = -0.236,	B(p) = 5, 	theta* = 195.389, 	z = -670.986
+	Iteración 25: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = -670.986
+
+	Solución óptima encontrada, iteración 25, z = -670.985918.
+
+
+Fin símplex primal.
+
+
+VB*=
+	14	7	12	20	11	16	9	17	4	18	
+xb*=
+	0.5809	3.3973	2.4070	493.8723	1.0749	195.3894	2.5865	622.8976	5.3873	548.5646	
+VNB*=
+	3	5	10	8	15	1	13	6	19	2	
+r*=
+	210.2187	44.1426	131.2765	94.7061	0.5298	42.3434	21.7877	122.8687	0.5830	104.5295	
+z*=
+	-670.9859

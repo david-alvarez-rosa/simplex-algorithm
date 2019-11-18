@@ -1,0 +1,60 @@
+Inicio símplex primal con regla de Bland.
+
+
+    Fase I
+	Iteración 1: 	q = 1,	rq = -146.000,	B(p) = 28, 	theta* = 3.367, 	z = 2508.467
+	Iteración 2: 	q = 2,	rq = -254.567,	B(p) = 26, 	theta* = 0.788, 	z = 2307.847
+	Iteración 3: 	q = 3,	rq = -376.599,	B(p) = 29, 	theta* = 0.461, 	z = 2134.066
+	Iteración 4: 	q = 4,	rq = -175.887,	B(p) = 22, 	theta* = 2.389, 	z = 1713.873
+	Iteración 5: 	q = 5,	rq = -118.870,	B(p) = 27, 	theta* = 2.191, 	z = 1453.432
+	Iteración 6: 	q = 8,	rq = -353.146,	B(p) = 24, 	theta* = 2.330, 	z = 630.755
+	Iteración 7: 	q = 7,	rq = -225.153,	B(p) = 3, 	theta* = 0.029, 	z = 624.289
+	Iteración 8: 	q = 10,	rq = -427.883,	B(p) = 30, 	theta* = 0.853, 	z = 259.221
+	Iteración 9: 	q = 3,	rq = -358.813,	B(p) = 25, 	theta* = 0.340, 	z = 137.151
+	Iteración 10: 	q = 6,	rq = -295.619,	B(p) = 2, 	theta* = 0.293, 	z = 50.439
+	Iteración 11: 	q = 11,	rq = -321.861,	B(p) = 21, 	theta* = 0.023, 	z = 42.907
+	Iteración 12: 	q = 2,	rq = -73.518,	B(p) = 23, 	theta* = 0.584, 	z = 0.000
+	Iteración 13: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = 0.000
+
+	Solución básica factible encontrada, iteración 13.
+
+
+    Fase II
+	Iteración 14: 	q = 9,	rq = -86.221,	B(p) = 6, 	theta* = 0.295, 	z = 291.788
+	Iteración 15: 	q = 12,	rq = -304.575,	B(p) = 10, 	theta* = 0.597, 	z = 109.929
+	Iteración 16: 	q = 6,	rq = -274.850,	B(p) = 3, 	theta* = 0.571, 	z = -46.966
+	Iteración 17: 	q = 13,	rq = -401.472,	B(p) = 2, 	theta* = 1.340, 	z = -584.928
+	Iteración 18: 	q = 3,	rq = -145.040,	B(p) = 5, 	theta* = 0.171, 	z = -609.677
+	Iteración 19: 	q = 14,	rq = -148.384,	B(p) = 3, 	theta* = 0.112, 	z = -626.335
+	Iteración 20: 	q = 19,	rq = -4.176,	B(p) = 8, 	theta* = 7.117, 	z = -656.052
+	Iteración 21: 	q = 3,	rq = -318.616,	B(p) = 14, 	theta* = 0.009, 	z = -658.877
+	Iteración 22: 	q = 5,	rq = -58.570,	B(p) = 3, 	theta* = 0.007, 	z = -659.273
+	Iteración 23: 	q = 2,	rq = -3.925,	B(p) = 13, 	theta* = 1.613, 	z = -665.605
+	Iteración 24: 	q = 15,	rq = -0.811,	B(p) = 9, 	theta* = 35.267, 	z = -694.216
+	Iteración 25: 	q = 3,	rq = -49.687,	B(p) = 1, 	theta* = 0.232, 	z = -705.763
+	Iteración 26: 	q = 13,	rq = -502.104,	B(p) = 5, 	theta* = 0.176, 	z = -794.076
+	Iteración 27: 	q = 1,	rq = -58.563,	B(p) = 3, 	theta* = 0.221, 	z = -807.042
+	Iteración 28: 	q = 17,	rq = -1.534,	B(p) = 13, 	theta* = 37.080, 	z = -863.928
+	Iteración 29: 	q = 9,	rq = -111.709,	B(p) = 2, 	theta* = 0.607, 	z = -931.750
+	Iteración 30: 	q = 3,	rq = -26.556,	B(p) = 15, 	theta* = 0.551, 	z = -946.383
+	Iteración 31: 	q = 18,	rq = -0.349,	B(p) = 3, 	theta* = 64.920, 	z = -969.032
+	Iteración 32: 	q = 20,	rq = -0.639,	B(p) = 1, 	theta* = 80.374, 	z = -1020.378
+	Iteración 33: 	q = 16,	rq = -0.054,	B(p) = 18, 	theta* = 64.470, 	z = -1023.875
+	Iteración 34: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = -1023.875
+
+	Solución óptima encontrada, iteración 34, z = -1023.874926.
+
+
+Fin símplex primal.
+
+
+VB*=
+	11	4	9	19	6	16	17	20	7	12	
+xb*=
+	2.9810	0.7785	0.8943	175.5460	1.1896	64.4704	174.3037	116.6605	6.2354	3.2339	
+VNB*=
+	15	10	5	14	2	18	13	3	8	1	
+r*=
+	0.1936	151.8801	58.0860	118.0078	157.1746	0.0694	126.7623	39.6462	204.1138	171.9413	
+z*=
+	-1023.8749

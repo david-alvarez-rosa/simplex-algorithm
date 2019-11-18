@@ -1,0 +1,22 @@
+Inicio símplex primal con regla de Bland.
+
+
+    Fase I
+	Iteración 1: 	q = 1,	rq = -417.000,	B(p) = 23, 	theta* = 0.147, 	z = 1123.676
+	Iteración 2: 	q = 2,	rq = -667.397,	B(p) = 25, 	theta* = 0.070, 	z = 1076.989
+	Iteración 3: 	q = 4,	rq = -1314.162,	B(p) = 29, 	theta* = 0.022, 	z = 1048.532
+	Iteración 4: 	q = 3,	rq = -38.748,	B(p) = 2, 	theta* = 0.203, 	z = 1040.678
+	Iteración 5: 	q = 5,	rq = -447.769,	B(p) = 30, 	theta* = 0.323, 	z = 896.021
+	Iteración 6: 	q = 2,	rq = -759.539,	B(p) = 1, 	theta* = 0.023, 	z = 878.628
+	Iteración 7: 	q = 11,	rq = -182.488,	B(p) = 2, 	theta* = 0.051, 	z = 869.248
+	Iteración 8: 	q = 12,	rq = -296.918,	B(p) = 22, 	theta* = 0.758, 	z = 644.285
+	Iteración 9: 	q = 14,	rq = -116.332,	B(p) = 26, 	theta* = 0.187, 	z = 622.494
+	Iteración 10: 	q = 15,	rq = -1.588,	B(p) = 14, 	theta* = 40.319, 	z = 558.462
+	Iteración 11: 	q = 16,	rq = -1.775,	B(p) = 3, 	theta* = 14.204, 	z = 533.253
+	Iteración 12: 	q = 17,	rq = -1.000,	B(p) = 27, 	theta* = 39.627, 	z = 493.626
+	Iteración 13: 	q = 18,	rq = -1.000,	B(p) = 28, 	theta* = 32.391, 	z = 461.234
+	Iteración 14: 	q = 22,	rq = -0.580,	B(p) = 16, 	theta* = 37.213, 	z = 439.668
+	Iteración 15: 	q = 23,	rq = -1.918,	B(p) = 12, 	theta* = 3.432, 	z = 433.084
+	Iteración 16: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = 433.084
+
+	El problema es INFACTIBLE.

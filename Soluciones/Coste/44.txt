@@ -1,0 +1,46 @@
+Inicio símplex primal con la regla del coste reducido más negativo.
+
+
+    Fase I
+	Iteración 1: 	q = 11,	rq = -761.000,	B(p) = 30, 	theta* = 6.890, 	z = 2118.710
+	Iteración 2: 	q = 4,	rq = -416.900,	B(p) = 26, 	theta* = 0.543, 	z = 1892.471
+	Iteración 3: 	q = 6,	rq = -343.303,	B(p) = 32, 	theta* = 0.765, 	z = 1629.724
+	Iteración 4: 	q = 5,	rq = -742.069,	B(p) = 29, 	theta* = 0.723, 	z = 1093.158
+	Iteración 5: 	q = 1,	rq = -916.394,	B(p) = 31, 	theta* = 0.792, 	z = 367.191
+	Iteración 6: 	q = 9,	rq = -331.706,	B(p) = 33, 	theta* = 0.016, 	z = 361.954
+	Iteración 7: 	q = 8,	rq = -266.466,	B(p) = 25, 	theta* = 0.319, 	z = 276.833
+	Iteración 8: 	q = 10,	rq = -202.486,	B(p) = 9, 	theta* = 0.235, 	z = 229.211
+	Iteración 9: 	q = 12,	rq = -1155.004,	B(p) = 28, 	theta* = 0.069, 	z = 149.460
+	Iteración 10: 	q = 7,	rq = -70.137,	B(p) = 12, 	theta* = 0.219, 	z = 134.126
+	Iteración 11: 	q = 9,	rq = -253.041,	B(p) = 34, 	theta* = 0.221, 	z = 78.282
+	Iteración 12: 	q = 14,	rq = -88.027,	B(p) = 10, 	theta* = 0.114, 	z = 68.209
+	Iteración 13: 	q = 12,	rq = -173.705,	B(p) = 4, 	theta* = 0.137, 	z = 44.372
+	Iteración 14: 	q = 13,	rq = -82.737,	B(p) = 27, 	theta* = 0.536, 	z = -0.000
+	Iteración 15: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = -0.000
+
+	Solución básica factible encontrada, iteración 15.
+
+
+    Fase II
+	Iteración 16: 	q = 10,	rq = -38.604,	B(p) = 11, 	theta* = 1.145, 	z = -639.647
+	Iteración 17: 	q = 4,	rq = -96.334,	B(p) = 5, 	theta* = 1.436, 	z = -777.976
+	Iteración 18: 	q = 17,	rq = -0.876,	B(p) = 9, 	theta* = 126.238, 	z = -888.623
+	Iteración 19: 	q = 23,	rq = -0.691,	B(p) = 6, 	theta* = 59.596, 	z = -929.824
+	Iteración 20: 	q = 9,	rq = -59.820,	B(p) = 8, 	theta* = 1.725, 	z = -1033.023
+	Iteración 21: 	q = 21,	rq = -1.391,	B(p) = 4, 	theta* = 12.117, 	z = -1049.884
+	Iteración 22: 	q = 11,	rq = -48.480,	B(p) = 9, 	theta* = 1.162, 	z = -1106.194
+	Iteración 23: 	q = 24,	rq = -1.070,	B(p) = 11, 	theta* = 111.713, 	z = -1225.742
+	Iteración 24: 	q = 4,	rq = -45.437,	B(p) = 14, 	theta* = 0.194, 	z = -1234.546
+	Iteración 25: 	q = 15,	rq = -0.873,	B(p) = 10, 	theta* = 649.997, 	z = -1802.213
+	Iteración 26: 	q = 18,	rq = -2.043,	B(p) = 7, 	theta* = 198.313, 	z = -2207.411
+	Iteración 27: 	q = 19,	rq = -2.188,	B(p) = 12, 	theta* = 183.525, 	z = -2609.056
+	Iteración 28: 	q = 6,	rq = -28.186,	B(p) = 1, 	theta* = 9.181, 	z = -2867.832
+	Iteración 29: 	q = 20,	rq = -3.526,	B(p) = 4, 	theta* = 350.062, 	z = -4102.171
+	Iteración 30: 	q = 8,	rq = -22.857,	B(p) = 6, 	theta* = 2.928, 	z = -4169.089
+	Iteración 31: 	q = 16,	rq = -6.834,	B(p) = 8, 	theta* = 344.000, 	z = -6520.000
+	Iteración 32: 	q = 22,	rq = -10.000,	B(p) = 0, 	theta* = 0.000, 	z = -6520.000
+
+	El problema es ILIMITADO.
+
+
+Fin símplex primal.

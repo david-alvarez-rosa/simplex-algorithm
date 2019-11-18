@@ -1,0 +1,20 @@
+Inicio símplex primal con la regla del coste reducido más negativo.
+
+
+    Fase I
+	Iteración 1: 	q = 5,	rq = -428.000,	B(p) = 25, 	theta* = 0.204, 	z = 1097.653
+	Iteración 2: 	q = 4,	rq = -630.878,	B(p) = 23, 	theta* = 0.064, 	z = 1057.474
+	Iteración 3: 	q = 7,	rq = -880.135,	B(p) = 29, 	theta* = 0.143, 	z = 931.250
+	Iteración 4: 	q = 11,	rq = -274.339,	B(p) = 7, 	theta* = 0.515, 	z = 789.925
+	Iteración 5: 	q = 12,	rq = -260.152,	B(p) = 22, 	theta* = 0.654, 	z = 619.777
+	Iteración 6: 	q = 14,	rq = -85.316,	B(p) = 4, 	theta* = 0.155, 	z = 606.589
+	Iteración 7: 	q = 15,	rq = -2.271,	B(p) = 26, 	theta* = 4.093, 	z = 597.295
+	Iteración 8: 	q = 4,	rq = -144.803,	B(p) = 14, 	theta* = 0.335, 	z = 548.723
+	Iteración 9: 	q = 16,	rq = -1.089,	B(p) = 30, 	theta* = 14.204, 	z = 533.253
+	Iteración 10: 	q = 17,	rq = -1.000,	B(p) = 27, 	theta* = 39.627, 	z = 493.626
+	Iteración 11: 	q = 18,	rq = -1.000,	B(p) = 28, 	theta* = 32.391, 	z = 461.234
+	Iteración 12: 	q = 22,	rq = -0.580,	B(p) = 16, 	theta* = 37.213, 	z = 439.668
+	Iteración 13: 	q = 23,	rq = -1.918,	B(p) = 12, 	theta* = 3.432, 	z = 433.084
+	Iteración 14: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = 433.084
+
+	El problema es INFACTIBLE.

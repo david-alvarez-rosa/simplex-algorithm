@@ -1,0 +1,49 @@
+Inicio símplex primal con la regla del coste reducido más negativo.
+
+
+    Fase I
+	Iteración 1: 	q = 4,	rq = -398.000,	B(p) = 22, 	theta* = 0.050, 	z = 2648.100
+	Iteración 2: 	q = 14,	rq = -659.100,	B(p) = 30, 	theta* = 0.945, 	z = 2025.549
+	Iteración 3: 	q = 10,	rq = -773.475,	B(p) = 27, 	theta* = 0.060, 	z = 1979.464
+	Iteración 4: 	q = 11,	rq = -861.290,	B(p) = 21, 	theta* = 0.537, 	z = 1517.151
+	Iteración 5: 	q = 9,	rq = -740.658,	B(p) = 28, 	theta* = 0.452, 	z = 1182.071
+	Iteración 6: 	q = 3,	rq = -529.459,	B(p) = 26, 	theta* = 0.684, 	z = 819.869
+	Iteración 7: 	q = 7,	rq = -321.520,	B(p) = 29, 	theta* = 1.244, 	z = 419.917
+	Iteración 8: 	q = 12,	rq = -243.425,	B(p) = 24, 	theta* = 0.048, 	z = 408.228
+	Iteración 9: 	q = 5,	rq = -153.139,	B(p) = 4, 	theta* = 1.637, 	z = 157.490
+	Iteración 10: 	q = 13,	rq = -231.636,	B(p) = 23, 	theta* = 0.285, 	z = 91.512
+	Iteración 11: 	q = 8,	rq = -248.178,	B(p) = 25, 	theta* = 0.369, 	z = -0.000
+	Iteración 12: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = -0.000
+
+	Solución básica factible encontrada, iteración 12.
+
+
+    Fase II
+	Iteración 13: 	q = 2,	rq = -83.874,	B(p) = 13, 	theta* = 1.600, 	z = -69.438
+	Iteración 14: 	q = 4,	rq = -184.099,	B(p) = 9, 	theta* = 0.283, 	z = -121.467
+	Iteración 15: 	q = 6,	rq = -338.521,	B(p) = 12, 	theta* = 0.352, 	z = -240.777
+	Iteración 16: 	q = 1,	rq = -401.647,	B(p) = 14, 	theta* = 0.013, 	z = -245.914
+	Iteración 17: 	q = 9,	rq = -18.135,	B(p) = 5, 	theta* = 1.500, 	z = -273.118
+	Iteración 18: 	q = 20,	rq = -0.443,	B(p) = 10, 	theta* = 143.027, 	z = -336.446
+	Iteración 19: 	q = 5,	rq = -19.966,	B(p) = 1, 	theta* = 1.918, 	z = -374.747
+	Iteración 20: 	q = 18,	rq = -0.505,	B(p) = 7, 	theta* = 90.889, 	z = -420.604
+	Iteración 21: 	q = 1,	rq = -158.303,	B(p) = 3, 	theta* = 0.494, 	z = -498.874
+	Iteración 22: 	q = 19,	rq = -0.201,	B(p) = 2, 	theta* = 369.991, 	z = -573.066
+	Iteración 23: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = -573.066
+
+	Solución óptima encontrada, iteración 23, z = -573.065949.
+
+
+Fin símplex primal.
+
+
+VB*=
+	11	9	19	6	8	1	20	4	18	5	
+xb*=
+	2.7937	4.0495	369.9914	0.7543	2.3871	1.3272	653.6842	2.9004	222.1487	1.1056	
+VNB*=
+	14	13	3	12	15	16	17	7	2	10	
+r*=
+	80.3559	72.8260	67.2399	122.1820	0.3488	0.0884	0.5311	49.6960	29.4900	50.3078	
+z*=
+	-573.0659

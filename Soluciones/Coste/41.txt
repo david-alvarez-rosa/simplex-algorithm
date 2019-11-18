@@ -1,0 +1,48 @@
+Inicio símplex primal con la regla del coste reducido más negativo.
+
+
+    Fase I
+	Iteración 1: 	q = 5,	rq = -514.000,	B(p) = 28, 	theta* = 0.104, 	z = 3122.458
+	Iteración 2: 	q = 6,	rq = -747.146,	B(p) = 24, 	theta* = 0.095, 	z = 3051.760
+	Iteración 3: 	q = 10,	rq = -692.576,	B(p) = 29, 	theta* = 0.971, 	z = 2379.401
+	Iteración 4: 	q = 8,	rq = -1549.088,	B(p) = 22, 	theta* = 0.491, 	z = 1618.211
+	Iteración 5: 	q = 11,	rq = -896.857,	B(p) = 26, 	theta* = 0.064, 	z = 1560.386
+	Iteración 6: 	q = 13,	rq = -334.335,	B(p) = 11, 	theta* = 0.113, 	z = 1522.767
+	Iteración 7: 	q = 9,	rq = -548.508,	B(p) = 27, 	theta* = 0.878, 	z = 1041.445
+	Iteración 8: 	q = 12,	rq = -560.413,	B(p) = 21, 	theta* = 0.183, 	z = 938.735
+	Iteración 9: 	q = 3,	rq = -394.936,	B(p) = 23, 	theta* = 0.784, 	z = 628.995
+	Iteración 10: 	q = 14,	rq = -338.509,	B(p) = 25, 	theta* = 1.849, 	z = 3.171
+	Iteración 11: 	q = 7,	rq = -132.311,	B(p) = 30, 	theta* = 0.024, 	z = -0.000
+	Iteración 12: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = -0.000
+
+	Solución básica factible encontrada, iteración 12.
+
+
+    Fase II
+	Iteración 13: 	q = 4,	rq = -134.367,	B(p) = 7, 	theta* = 0.068, 	z = 402.463
+	Iteración 14: 	q = 1,	rq = -606.186,	B(p) = 10, 	theta* = 0.069, 	z = 360.821
+	Iteración 15: 	q = 2,	rq = -213.222,	B(p) = 12, 	theta* = 2.706, 	z = -216.150
+	Iteración 16: 	q = 11,	rq = -315.822,	B(p) = 13, 	theta* = 0.384, 	z = -337.522
+	Iteración 17: 	q = 10,	rq = -33.218,	B(p) = 8, 	theta* = 0.370, 	z = -349.808
+	Iteración 18: 	q = 16,	rq = -2.117,	B(p) = 6, 	theta* = 7.719, 	z = -366.147
+	Iteración 19: 	q = 8,	rq = -104.632,	B(p) = 10, 	theta* = 0.376, 	z = -405.442
+	Iteración 20: 	q = 20,	rq = -0.692,	B(p) = 3, 	theta* = 33.346, 	z = -428.513
+	Iteración 21: 	q = 13,	rq = -20.082,	B(p) = 8, 	theta* = 0.082, 	z = -430.169
+	Iteración 22: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = -430.169
+
+	Solución óptima encontrada, iteración 22, z = -430.169346.
+
+
+Fin símplex primal.
+
+
+VB*=
+	2	13	20	16	14	11	9	5	1	4	
+xb*=
+	3.4003	0.0825	47.2343	28.2893	0.1548	0.8644	0.6875	0.4301	1.9931	4.2383	
+VNB*=
+	10	12	7	8	15	6	17	18	19	3	
+r*=
+	93.0068	236.9235	159.5906	9.3608	0.5841	121.7337	0.9816	0.1905	0.9103	99.8873	
+z*=
+	-430.1693

@@ -1,0 +1,18 @@
+Inicio símplex primal con regla de Bland.
+
+
+    Fase I
+	Iteración 1: 	q = 1,	rq = -143.000,	B(p) = 21, 	theta* = 1.072, 	z = 1215.680
+	Iteración 2: 	q = 3,	rq = -159.660,	B(p) = 30, 	theta* = 0.356, 	z = 1158.769
+	Iteración 3: 	q = 5,	rq = -65.673,	B(p) = 23, 	theta* = 0.503, 	z = 1125.755
+	Iteración 4: 	q = 6,	rq = -8.431,	B(p) = 3, 	theta* = 0.234, 	z = 1123.779
+	Iteración 5: 	q = 7,	rq = -181.801,	B(p) = 6, 	theta* = 0.152, 	z = 1096.166
+	Iteración 6: 	q = 11,	rq = -164.750,	B(p) = 22, 	theta* = 0.380, 	z = 1033.629
+	Iteración 7: 	q = 2,	rq = -19.344,	B(p) = 28, 	theta* = 0.061, 	z = 1032.454
+	Iteración 8: 	q = 12,	rq = -37.148,	B(p) = 2, 	theta* = 0.116, 	z = 1028.131
+	Iteración 9: 	q = 13,	rq = -151.426,	B(p) = 12, 	theta* = 0.147, 	z = 1005.931
+	Iteración 10: 	q = 16,	rq = -1.000,	B(p) = 26, 	theta* = 194.329, 	z = 811.602
+	Iteración 11: 	q = 23,	rq = -0.127,	B(p) = 5, 	theta* = 39.325, 	z = 806.619
+	Iteración 12: 	q = 0,	rq = 0.000,	B(p) = 0, 	theta* = 0.000, 	z = 806.619
+
+	El problema es INFACTIBLE.
