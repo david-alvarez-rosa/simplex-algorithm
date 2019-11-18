@@ -1,0 +1,332 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin = 1in]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amsthm, amssymb}
+\usepackage{parcolumns}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pdflscape, everypage}
+\usepackage{fancyhdr}
+\usepackage[colorlinks, linkcolor = blue]{hyperref}
+\usepackage{graphicx, float}
+
+\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
+  \dimendef\margin=0 %use \margin instead of \dimen0
+  \ifodd\value{page}\margin=\oddsidemargin
+  \else\margin=\evensidemargin
+  \fi
+  \raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
+    \rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
+    \llap{\rotatebox{90}{\thepage}}}}%
+\egroup\fi}
+\AddEverypageHook{\Lpagenumber}%
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Np}{\mathcal{N}}
+\newcommand{\M}{\mathcal{M}}
+
+\renewcommand{\arraystretch}{1.5}
+
+\definecolor{mintedbackground}{rgb}{0.95,0.95,0.95}
+
+\renewcommand{\theFancyVerbLine}{\sffamily \small \arabic{FancyVerbLine}}
+
+\newmintedfile[cppcode]{c++} {
+  frame = single,
+  framerule = 1.25pt,
+  framesep = 3mm,
+  bgcolor = mintedbackground,
+  fontfamily = tt,
+  fontsize = \small,
+  linenos = true,
+  numbersep = 1pt,
+  xleftmargin = \parindent,
+  breaklines,
+  tabsize = 4,
+  obeytabs = false,
+  mathescape = true,
+  samepage = false,
+  showtabs = false,
+  texcl = false,
+  labelposition = all
+}
+
+\lstset {
+  basicstyle = \footnotesize\ttfamily,
+  numbers = left,
+  numberblanklines = false,
+  numberstyle = \small,
+  stepnumber = 1,
+  numbersep = 10pt,
+  tabsize = 6,
+  breaklines = true,
+  backgroundcolor = \color{mintedbackground},
+  frame = leftline,
+  framexleftmargin = 2pt,
+  showstringspaces = false,
+  literate =
+  {á}{{\'a}}1
+  {é}{{\'e}}1
+  {í}{{\'i}}1
+  {ó}{{\'o}}1
+  {ú}{{\'u}}1
+  {ñ}{{\~n}}1
+}
+
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+\lhead{\slshape Implementación del Simplex Primal}
+\rhead{\slshape\nouppercase{\leftmark}}
+\cfoot{David Álvarez Rosa, David Ariza Blasi}
+\rfoot{\thepage}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \sc \LARGE
+
+  \vspace*{1cm}
+
+  \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+  \rule{\textwidth}{0.4pt}
+  \vspace{-.25cm}
+
+  Implementación del Simplex Primal
+
+  \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace*{3.2pt}
+  \rule{\textwidth}{1.6pt}
+  \vspace{1cm}
+
+  \Large
+  David Álvarez Rosa \hspace{1cm} David Ariza Blasi
+  \vfill
+
+  \includegraphics[height=3.5cm]{Logo_FME.jpeg} \hspace{1.5cm}
+  \includegraphics[height=3.5cm]{Logo_UPC.png}
+  \vspace{1cm}
+
+  \textit{Facultad de Matemáticas y Estadística} \\
+  \textit{Universidad Politécnica de Cataluña}
+  \vfill
+
+  \large
+  Barcelona, 15 de noviembre de 2018
+\end{titlepage}
+
+
+\thispagestyle{empty}
+\vspace*{\fill}
+\tableofcontents
+% \vspace{.5cm}
+% \listoftables
+% \vspace{.5cm}
+% \listoffigures
+\vfill
+\vspace{.75cm}
+\newpage
+\setcounter{page}{1}
+
+
+\section{Introducción}
+
+\noindent En este informe se presenta la implementación del algoritmo del
+Símplex Primal, consistente en la lectura de los datos asignados a cada miembro
+del grupo (de un problema de programación lineal en forma estándar y la
+posterior aplicación del algoritmo citado para encontrar una solución óptima al
+problema). \\
+
+\noindent La datos se presentan como una matriz con los coeficientes de las
+constricciones del problema $A \in \M_{m \times n}(\R)$, un vector de términos
+independientes de las constricciones $b \in \mathbb{R}^m$ y un vector de costes
+$c \in \mathbb{R}^n$:
+
+\[
+  (PL)
+  \left\{
+    \begin{aligned}
+      \, \min \limits_{x \in \R^n} \quad & c^Tx \\
+      s.a.: \quad & Ax=b \\
+      & x \geq 0 \\
+    \end{aligned}
+  \right.
+\] \\
+
+\noindent La presentación de la implementación del algoritmo se dividirá en distintas secciones: explicando las diferentes funciones que integra el código. Se ha programado de forma que se puedan resolver problemas factibles,
+infactibles, ilimitados y degenerados. \\
+
+\noindent En el guión de la práctica, se mencionaba que se podía asumir que la
+matriz $A$ dada era de rango completo. Pese a esta asunción, el código es capaz
+de detectar la presencia de redundancias para evitar el fallo del programa en
+caso de que la matriz de constricciones no fuese de rango completo. \\
+
+\noindent \underline{\large{- Funcionamiento del programa}}\\
+
+\noindent Posiblemente el ejecutable no funcione dependiendo del ordenador, en
+este caso volver a compilarlo:
+\begin{verbatim}
+$ g++ functions.cc simplex.cc -o Simplex
+\end{verbatim}
+\noindent En implementación del programa está explicado cómo debe ser el formato
+del input, los conjuntos de problemas $3$ y $4$ ya están convertidos a este
+formato. Para ejecutar, por ejemplo, el problema PL $2$ del conjunto $3$ de
+acuerdo con la regla del coste reducido más negativo hacer:
+\begin{verbatim}
+$ ./Simplex <"Datos/Coste más reducido/Conjunto 3 - Problema 2.txt"
+\end{verbatim}
+
+
+\section{Implementación del Símplex Primal}
+
+\subsection{Librería auxiliar}
+\noindent Hemos creado una librería propia auxiliar con funciones básicas que
+después usaremos en la implementación del Algoritmo del Símplex. El código
+completo se encuentra en \textit{functions.cc}. Las
+funciones son las siguientes (\textit{functions.h}):
+\cppcode[label = functions.h]{functions.h}
+
+\subsection{Fase I}
+\noindent La fase I comienza creando primero el problema auxiliar:
+\cppcode[label = simplex.cc, firstline = 183, lastline = 213]{simplex.cc}
+
+\noindent Continuamos con la iteración del símplex, que nos devolverá el valor
+del óptimo junto con la base óptima (sabemos que en el caso de la fase I el
+óptimo siempre existirá):
+\cppcode[label = simplex.cc, firstline = 215, lastline = 221]{simplex.cc}
+
+\noindent Posiblemente en la base óptima del problema auxiliar queden variables
+artificiales que no queremos. Para sacarlas de la base debemos iterar sobre las
+variables básicas artificiales. Esto es, si la variable básica $i$-ésima es
+artificial, buscaremos una $j, \, j = 1,\ldots, n$ tal que la $i$-ésima componente
+del vector $\mathbf{B}^{-1} \mathbf{A}_j$ sea diferente de 0. Después hacemos un cambio de base, la
+$i$-ésima variable básica sale (es artificial) y la $x_j$ entra (esta es variable
+natural). Sabemos que siempre encontraremos tal $j$, ya que estamos suponiendo
+que $\mathbf{A}$ es de rango máximo. De todas maneras, en caso de que no existiera, el
+programa avisa de que la restricción $i$-ésima es redundante:
+\cppcode[firstline = 223, lastline = 240]{simplex.cc}
+
+\noindent La fase I finalmente guardará la solución básica factible (sin
+variables artificiales) y devolverá el valor óptimo del problema auxiliar y
+la matriz de base óptima junto con su inversa:
+\cppcode[label = simplex.cc, firstline = 242, lastline = 251]{simplex.cc}
+
+\subsection{Fase II}
+
+\noindent El algoritmo funciona tal y como se expuso en clase. Empieza calculando el valor de la función objetivo para las variables básicas de la SBF obtenida en la Fase I:
+\cppcode[label = simplex.cc, firstline = 257, lastline = 259]{simplex.cc}
+
+\noindent En este punto, se llama a la función de iteración del símplex hasta que se halla una de las siguientes dos situaciones:
+\begin{enumerate}
+    \item Si se ha encontrado una solución óptima, el programa termina mostrándola por pantalla.
+    \item Si se ha encontrado que el problema es ilimitado, el programa acaba mostrándolo por pantalla.
+\end{enumerate}
+\cppcode[label = simplex.cc, firstline = 262, lastline = 284]{simplex.cc}
+
+\subsection{Función de Iteración}
+
+\noindent La función de iteración del símplex implementada en el código es llamada tanto desde la Fase I como desde la Fase II (en el caso de la Fase I, se llama con el problema auxiliar generado con las variables auxiliares introducidas).
+
+\noindent Lo primero a calcular es el vector de costes reducidos, mediante una función auxiliar:
+\cppcode[label = simplex.cc, firstline = 53, lastline = 60]{simplex.cc}
+
+\noindent Si todos los valores del vector de costes reducidos son mayores o iguales a 0, se para de iterar y se muestra la solución óptima encontrada. Si no, se prosigue con la ejecución de la función de iteración, procediendo ahora a seleccionar la variable no básica de entrada. Esto se realiza mediante la siguiente función, que opera de distinta forma si se quiere seguir la regla de coste reducido más negativo o si se quiere aplicar la regla de Bland:
+\cppcode[label = simplex.cc, firstline = 65, lastline = 76]{simplex.cc}
+
+\noindent Se calcula la dirección básica de descenso asociada a la variable de entrada:
+\cppcode[label = simplex.cc, firstline = 80, lastline = 84]{simplex.cc}
+
+\noindent Si todos los valores del vector dirección básica de descenso son mayores o iguales a cero, el problema es ilimitado, con lo que el programa acaba, mostrando la conclusión hallada por pantalla. Si no es así, se continúa la ejecución de la función, seleccionando ahora la variable básica de salida:
+\cppcode[label = simplex.cc, firstline = 89, lastline = 111]{simplex.cc}
+
+\noindent Finalmente se realizan las distintas actualizaciones necesarias para preparar la siguiente iteración del símplex (se implementa la actualización de la inversa vista en clase):
+\cppcode[label = simplex.cc, firstline = 115, lastline = 136]{simplex.cc}
+
+
+\subsection{Ejecución del Programa}
+\noindent El programa general comienza leyendo los datos del problema particular
+desde un fichero de texto. Este fichero tiene que tener el mismo formato que los
+adjuntados en la carpeta \textit{Datos}. Esto es, debe contener la regla que se
+desea usar (1 corresponde a coste reducido más negativo y 2 corresponde a la
+regla de Bland), el número de variables, el número de restricciones, el vector
+$\mathbf{c}$, la matriz $\mathbf{A}$ y el vector $\mathbf{b}$. La lectura se hace en el \textit{main} del código. \\
+
+\noindent Después ejecutaremos la función principal del algoritmo del Símplex
+la cual, lo primero que hace, es forzar la positividad del vector $\mathbf{b}$:
+\cppcode[label = simplex.cc, firstline = 139, lastline = 149]{simplex.cc}
+
+\noindent Más adelante, se pasa a ejecutar la fase I del símplex. Aquí ya se
+puede detectar la infactibilidad del problema, ya se sabe que el valor
+óptimo del problema auxiliar es $0$ si y solo si el prolema original es factible:
+\cppcode[label = simplex.cc, firstline = 306, lastline = 318]{simplex.cc}
+
+\noindent Si el problema fuese factible, la ejecución de la fase I ya habría
+dado un conjunto de variables básicas (\underline{no} artificiales) y una matriz de
+base junto con su inversa. De esta manera, ya se tiene una SBF inicial con la que comenzar a iterar el problema original:
+\cppcode[label = simplex.cc, firstline = 320, lastline = 323]{simplex.cc}
+
+\noindent Aquí el problema quedará resuelto y toda la información (de las iteraciones y de la solución) se imprimirá por pantalla.
+
+\newpage
+\section{Resolución de los problemas asignados}
+
+\noindent Tal y como se requería en el enunciado de la práctica, se han resuelto los cuatro problemas de cada conjunto de datos asignado a los miembros del grupo, en este caso, los conjuntos de datos nº 3 y nº 4. A continuación se presenta una tabla que resume los resultados obtenidos y cada uno de los outputs generados en resolver todos los problemas (utilizando la regla de Bland y la del coste reducido más negativo):\\
+
+\begin{center}
+    \begin{tabular}{c c c}
+    \hline
+    \textbf{Problema} & \textbf{Clasificación} & \textbf{Coste Mínimo} \\
+    \hline
+    3.1 & Factible, Óptimo hallado & -1023.874926\\
+    3.2 & Factible, Óptimo hallado & -573.065949 \\
+    3.3 & Ilimitado & --- \\
+    3.4 & Infactible & --- \\
+    4.1 & Factible, Óptimo hallado & -430.169346 \\
+    4.2 & Infactible & --- \\
+    4.3 & Factible, Óptimo hallado & -670.985918 \\
+    4.4 & Ilimitado & --- \\
+    \hline
+    \end{tabular}
+\end{center}
+\begin{center}
+    Tabla 1. Resultados obtenidos tras la resolución de los problemas asignados.
+\end{center}
+
+\begin{landscape}
+\pagestyle{empty}
+\subsection{Conjunto de datos nº 3}
+\subsubsection{Problema 1}
+\lstinputlisting{Soluciones/Bland/31.txt}
+\lstinputlisting{Soluciones/Coste/31.txt}
+\subsubsection{Problema 2}
+\lstinputlisting{Soluciones/Bland/32.txt}
+\lstinputlisting{Soluciones/Coste/32.txt}
+\subsubsection{Problema 3}
+\lstinputlisting{Soluciones/Bland/33.txt}
+\lstinputlisting{Soluciones/Coste/33.txt}
+\subsubsection{Problema 4}
+\lstinputlisting{Soluciones/Bland/34.txt}
+\lstinputlisting{Soluciones/Coste/34.txt}
+
+\subsection{Conjunto de datos nº 4}
+\subsubsection{Problema 1}
+\lstinputlisting{Soluciones/Bland/41.txt}
+\lstinputlisting{Soluciones/Coste/41.txt}
+\subsubsection{Problema 2}
+\lstinputlisting{Soluciones/Bland/42.txt}
+\lstinputlisting{Soluciones/Coste/42.txt}
+\subsubsection{Problema 3}
+\lstinputlisting{Soluciones/Bland/43.txt}
+\lstinputlisting{Soluciones/Coste/43.txt}
+\subsubsection{Problema 4}
+\lstinputlisting{Soluciones/Bland/44.txt}
+\lstinputlisting{Soluciones/Coste/44.txt}
+\end{landscape}
+
+\end{document}
